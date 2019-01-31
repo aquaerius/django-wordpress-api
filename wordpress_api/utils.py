@@ -29,7 +29,7 @@ class WPApiConnector():
         if not self.wp_url or not self.blog_per_page:
             return {'configuration_error': 'External url is not defined'}
         params = {}
-        query = self.wp_url + 'wp-json/posts/'
+        query = self.wp_url + 'wp-json/wp/v2/posts/'
         if orderby == 'title':
             params['filter[order]'] = 'ASC'
         else:
@@ -74,7 +74,7 @@ class WPApiConnector():
         Gets all the tags inside the wordpress application
         """
         params = {}
-        query = self.wp_url + "wp-json/taxonomies/post_tag/terms/"
+        query = self.wp_url + "wp-json/wp/v2/taxonomies/post_tag/terms/"
         if lang is not None:
             params['lang'] = lang
         try:
@@ -96,7 +96,7 @@ class WPApiConnector():
         Gets all the categories inside the wordpress application
         """
         params = {}
-        query = self.wp_url + "wp-json/taxonomies/category/terms/"
+        query = self.wp_url + "wp-json/wp/v2/taxonomies/category/terms/"
         if lang is not None:
             params['lang'] = lang
         try:
